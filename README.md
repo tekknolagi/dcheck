@@ -1,6 +1,6 @@
 # [dcheck](https://github.com/tekknolagi/dcheck)
 
-This very small assert library provides `asser`t-like macros for checking
+This very small assert library provides `assert`-like macros for checking
 conditions at runtime.
 
 Improvements over raw `assert`:
