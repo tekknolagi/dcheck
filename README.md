@@ -1,10 +1,12 @@
 # [DCHECK](https://github.com/tekknolagi/dcheck)
 
-This very small assert library provides assert-like macros for checking
+This very small assert library provides `asser`t-like macros for checking
 conditions at runtime.
 
 Improvements over raw `assert`:
 
+* Semantic checks for indices, bounds, ranges, unimplemented features, and
+  unreachable states
 * Includes `printf`-compatible error message formatting
 * `NDEBUG` and always-on variants
 * Bounds/index checking built-in
@@ -18,6 +20,8 @@ Here is some sample code:
 
 int main() {
   // ...
+
+  CHECK(true, "thank goodness");
 
   int arr[3];
   // Array index won't crash
@@ -44,5 +48,8 @@ int main() {
   // ...
 }
 ```
+
+Add `D` before `CHECK`, `CHECK_INDEX`, `CHECK_BOUND`, and `CHECK_RANGE` if you
+want the check to go away in `NDEBUG` mode. Like `DCHECK_INDEX` and so forth.
 
 Happy hacking.
