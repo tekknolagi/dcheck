@@ -1,4 +1,4 @@
-# [DCHECK](https://github.com/tekknolagi/dcheck)
+# [dcheck](https://github.com/tekknolagi/dcheck)
 
 This very small assert library provides `asser`t-like macros for checking
 conditions at runtime.
