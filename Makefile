@@ -1,10 +1,13 @@
-test: build_c99 build_c11 build_cpp98 build_cpp11 build_cpp14 build_cpp17 build_cpp20
+test: build_c99 build_c11 build_c17 build_cpp98 build_cpp11 build_cpp14 build_cpp17 build_cpp20
 
 build_c99: build
 	$(CC) -std=c99 example.c dcheck.c -o build/example_c99
 
 build_c11: build
 	$(CC) -std=c11 example.c dcheck.c -o build/example_c11
+
+build_c17: build
+	$(CC) -std=c17 example.c dcheck.c -o build/example_c17
 
 build_cpp98: build
 	$(CXX) -std=c++98 example.cpp dcheck.c -o build/example_cpp98
