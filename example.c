@@ -1,10 +1,10 @@
 #include "dcheck.h"
 
-#include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <string.h>
 
-void some_function() {
+void some_function(void) {
   // TODO(TaskId): As soon as Brian finishes the hoozywhatsit, write this
   // function
   UNIMPLEMENTED("needs Brian's feature");
@@ -43,6 +43,7 @@ int main(int argc, char **argv) {
   int arr[3];
   // Array index won't crash
   CHECK_INDEX(ind, 3);
+  (void)arr[ind];
 
   // Still can order off the kids menu
   CHECK_BOUND(age, 5);

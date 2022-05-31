@@ -1,8 +1,8 @@
 #include "dcheck.h"
 
+#include <cstdlib>
 #include <cstring>
 #include <string>
-#include <cstdlib>
 
 void some_function() {
   // TODO(TaskId): As soon as Brian finishes the hoozywhatsit, write this
@@ -43,6 +43,7 @@ int main(int argc, char **argv) {
   int arr[3];
   // Array index won't crash
   CHECK_INDEX(ind, 3);
+  (void)arr[ind];
 
   // Still can order off the kids menu
   CHECK_BOUND(age, 5);
