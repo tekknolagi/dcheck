@@ -1,7 +1,7 @@
 # [dcheck](https://github.com/tekknolagi/dcheck)
 
 This very small assert library provides `assert`-like macros for checking
-conditions at runtime.
+conditions at runtime. It works with C and C++.
 
 Improvements over raw `assert`:
 
