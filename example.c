@@ -1,8 +1,8 @@
 #include "dcheck.h"
 
-#include <cstring>
-#include <string>
-#include <cstdlib>
+#include <string.h>
+#include <stdbool.h>
+#include <stdlib.h>
 
 void some_function() {
   // TODO(TaskId): As soon as Brian finishes the hoozywhatsit, write this
@@ -34,11 +34,11 @@ bool is_even(int val) {
 int main(int argc, char **argv) {
   CHECK(argc == 6, "Got the wrong number of args (%d)", argc);
 
-  long ind = ::atol(argv[1]);
-  long age = ::atol(argv[2]);
-  long month = ::atol(argv[3]);
-  bool should_call = std::string(argv[4]) == "false" ? false : true;
-  long val = ::atol(argv[5]);
+  long ind = atol(argv[1]);
+  long age = atol(argv[2]);
+  long month = atol(argv[3]);
+  bool should_call = strcmp(argv[4], "false") == 0 ? false : true;
+  long val = atol(argv[5]);
 
   int arr[3];
   // Array index won't crash
