@@ -1,6 +1,7 @@
 // Copyright (c) Facebook, Inc. and its affiliates. (http://www.facebook.com)
 #include "dcheck.h"
 
+#include <execinfo.h>
 #include <stdint.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -8,6 +9,18 @@
 
 void checkFailed(const char *file, int line, const char *func, const char *expr,
                  ...) {
+#define BACKTRACE_MAX 10
+  void *buffer[BACKTRACE_MAX];
+  int nptrs = backtrace(buffer, BACKTRACE_MAX);
+  char **symbols = backtrace_symbols(buffer, nptrs);
+  if (symbols != NULL) {
+    for (int i = nptrs-1; i >= 0; i--) {
+      fprintf(stderr, "%s\n", symbols[i]);
+    }
+    fprintf(stderr, "(most recent call last)\n");
+  }
+  free(symbols);
+#undef BACKTRACE_MAX
   fprintf(stderr, "%s:%d %s: %s: ", file, line, func, expr);
   va_list args;
   va_start(args, expr);
