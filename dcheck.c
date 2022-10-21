@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// TODO(max): Use CaptureStackBackTrace on windows
+// TODO(max): use libbacktrace? https://github.com/ianlancetaylor/libbacktrace
+
 void checkFailed(const char *file, int line, const char *func, const char *expr,
                  ...) {
 #define BACKTRACE_MAX 10
