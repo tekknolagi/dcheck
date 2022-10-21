@@ -49,3 +49,16 @@ Add `D` before `CHECK`, `CHECK_INDEX`, `CHECK_BOUND`, and `CHECK_RANGE` if you
 want the check to go away in `NDEBUG` mode. Like `DCHECK_INDEX` and so forth.
 
 Happy hacking.
+
+## Use in CMake projects
+
+```cmake
+include(FetchContent)
+FetchContent_Declare(
+  dcheck
+  GIT_REPOSITORY https://github.com/tekknolagi/dcheck
+  GIT_TAG        trunk
+)
+FetchContent_MakeAvailable(dcheck)
+target_include_directories(your_target_name_here PRIVATE ${dcheck_SOURCE_DIR})
+```
