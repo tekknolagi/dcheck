@@ -60,5 +60,4 @@ FetchContent_Declare(
   GIT_TAG        trunk
 )
 FetchContent_MakeAvailable(dcheck)
-target_include_directories(your_target_name_here PRIVATE ${dcheck_SOURCE_DIR})
 ```
