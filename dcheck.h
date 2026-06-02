@@ -40,11 +40,15 @@
     }                                                                          \
   } while (0)
 
+#define CHECK_IMPLIES(cond, expr)                                              \
+  CHECK(!(cond) || (expr), "'" #cond "' implies '" #expr "'")
+
 #if DCHECK_IS_ON()
 #define DCHECK(...) CHECK(__VA_ARGS__)
 #define DCHECK_BOUND(val, high) CHECK_BOUND(val, high)
 #define DCHECK_INDEX(index, high) CHECK_INDEX(index, high)
 #define DCHECK_RANGE(val, low, high) CHECK_RANGE(val, low, high)
+#define DCHECK_IMPLIES(cond, expr) CHECK_IMPLIES(cond, expr)
 #else
 #define DCHECK(...)                                                            \
   if (false) {                                                                 \
@@ -58,6 +62,10 @@
 #define DCHECK_RANGE(val, low, high)                                           \
   if (false) {                                                                 \
     CHECK_RANGE(val, low, high);                                               \
+  }
+#define DCHECK_IMPLIES(cond, expr)                                             \
+  if (false) {                                                                 \
+    CHECK_IMPLIES(cond, expr);                                                 \
   }
 #endif
 

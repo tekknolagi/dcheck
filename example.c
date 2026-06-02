@@ -51,6 +51,11 @@ int main(int argc, char **argv) {
   // Month is valid
   CHECK_RANGE(month, 1, 12);
 
+  CHECK_IMPLIES(true, true);
+  CHECK_IMPLIES(false, true);
+  CHECK_IMPLIES(false, false);
+  // CHECK_IMPLIES(true, false);
+
   if (should_call) {
     some_function();
   }
